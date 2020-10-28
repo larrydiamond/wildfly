@@ -240,7 +240,7 @@ public class ParseUtils {
     public static void checkModelParams(ModelNode node, Properties params){
         String str;
 
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder ();
         String par,child;
         Enumeration<?> e = params.propertyNames();
 

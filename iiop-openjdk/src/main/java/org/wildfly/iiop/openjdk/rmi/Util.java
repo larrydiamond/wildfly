@@ -209,7 +209,7 @@ public class Util {
         if (name == null || "".equals(name) || name.indexOf('.') != -1)
             throw IIOPLogger.ROOT_LOGGER.nameCannotBeNullEmptyOrQualified();
 
-        StringBuffer res = new StringBuffer(name.length());
+        StringBuilder res = new StringBuilder (name.length());
 
         if (name.charAt(0) == '_')
             res.append('J'); // 1.3.2.3
@@ -246,7 +246,7 @@ public class Util {
             return result;
 
         String name = cls.getName();
-        StringBuffer b = new StringBuffer("RMI:");
+        StringBuilder b = new StringBuilder ("RMI:");
 
         for (int i = 0; i < name.length(); ++i) {
             char c = name.charAt(i);
@@ -565,7 +565,7 @@ public class Util {
      * specification, section 4.3.3.
      */
     private static String getSignature(Method method) {
-        StringBuffer b = new StringBuffer("(");
+        StringBuilder b = new StringBuilder ("(");
         Class[] parameterTypes = method.getParameterTypes();
 
         for (int i = 0; i < parameterTypes.length; ++i)

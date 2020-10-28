@@ -304,7 +304,7 @@ public abstract class AbstractDataSourceService implements Service<DataSource> {
 
 
     protected String buildConfigPropsString(Map<String, String> configProps) {
-        final StringBuffer valueBuf = new StringBuffer();
+        final StringBuilder valueBuf = new StringBuilder ();
         for (Map.Entry<String, String> connProperty : configProps.entrySet()) {
             valueBuf.append(connProperty.getKey());
             valueBuf.append("=");

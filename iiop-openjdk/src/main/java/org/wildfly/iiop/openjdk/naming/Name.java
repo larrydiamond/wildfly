@@ -156,8 +156,8 @@ public class Name implements java.io.Serializable {
         char ch;
         int len = sn.length();
         boolean inKind = false;
-        StringBuffer id = new StringBuffer();
-        StringBuffer kind = new StringBuffer();
+        StringBuilder id = new StringBuilder ();
+        StringBuilder kind = new StringBuilder ();
 
         for (int i = 0; i < len; i++) {
             ch = sn.charAt(i);
@@ -231,7 +231,7 @@ public class Name implements java.io.Serializable {
         if (n == null || n.length == 0)
             throw new org.omg.CosNaming.NamingContextPackage.InvalidName();
 
-        StringBuffer b = new StringBuffer();
+        StringBuilder b = new StringBuilder ();
         for (int i = 0; i < n.length; i++) {
             if (i > 0)
                 b.append("/");
@@ -253,7 +253,7 @@ public class Name implements java.io.Serializable {
      */
 
     private static String escape(String s) {
-        StringBuffer sb = new StringBuffer(s);
+        StringBuilder sb = new StringBuilder (s);
         for (int i = 0; i < sb.length(); i++) {
             if (sb.charAt(i) == '/' || sb.charAt(i) == '\\' || sb.charAt(i) == '.') {
                 sb.insert(i, '\\');

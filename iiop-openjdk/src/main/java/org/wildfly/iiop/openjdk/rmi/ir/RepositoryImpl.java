@@ -275,7 +275,7 @@ class RepositoryImpl extends ContainerImpl implements RepositoryOperations, Loca
                 base = "org/w3c" + base.substring(7);
 
             // convert '/' to "::"
-            StringBuffer b = new StringBuffer();
+            StringBuilder b = new StringBuilder ();
             for (int i = 0; i < base.length(); ++i) {
                 char c = base.charAt(i);
 
@@ -296,7 +296,7 @@ class RepositoryImpl extends ContainerImpl implements RepositoryOperations, Loca
             String base = id.substring(4, id.indexOf(':', 4));
 
             // convert '.' to "::"
-            StringBuffer b = new StringBuffer();
+            StringBuilder b = new StringBuilder ();
             for (int i = 0; i < base.length(); ++i) {
                 char c = base.charAt(i);
 

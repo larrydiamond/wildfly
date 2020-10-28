@@ -39,7 +39,7 @@ public final class PluginId implements Comparable<PluginId> {
         this.major = major;
         this.minor = minor;
         this.release = release;
-        StringBuffer sb = new StringBuffer(name).append(": ")
+        StringBuilder sb = new StringBuilder (name).append(": ")
                 .append(major).append('.')
                 .append(minor);
         if (null != release) {

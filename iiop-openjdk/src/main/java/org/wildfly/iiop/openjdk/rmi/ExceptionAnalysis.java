@@ -59,7 +59,7 @@ public class ExceptionAnalysis extends ValueAnalysis {
             throw IIOPLogger.ROOT_LOGGER.badRMIIIOPExceptionType(cls.getName(), "1.2.6");
 
         // calculate exceptionRepositoryId
-        StringBuffer b = new StringBuffer("IDL:");
+        StringBuilder b = new StringBuilder ("IDL:");
         String pkgName = cls.getPackage().getName();
 
         while (!"".equals(pkgName)) {

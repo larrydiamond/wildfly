@@ -245,7 +245,7 @@ public abstract class ContainerAnalysis  extends ClassAnalysis {
     public String getIDLModuleName() {
         if (idlModuleName == null) {
             String pkgName = cls.getPackage().getName();
-            StringBuffer b = new StringBuffer();
+            StringBuilder b = new StringBuilder ();
 
             while (!"".equals(pkgName)) {
                 int idx = pkgName.indexOf('.');
@@ -596,7 +596,7 @@ public abstract class ContainerAnalysis  extends ClassAnalysis {
 
             // Calculate new IDL name
             ParameterAnalysis[] params = oa.getParameters();
-            StringBuffer b = new StringBuffer(oa.getIDLName());
+            StringBuilder b = new StringBuilder (oa.getIDLName());
             if (params.length == 0)
                 b.append("__");
             for (int j = 0; j < params.length; ++j) {
@@ -668,7 +668,7 @@ public abstract class ContainerAnalysis  extends ClassAnalysis {
             AbstractAnalysis aa = (AbstractAnalysis) entries.get(i);
             boolean noUpper = true;
             String name = aa.getIDLName();
-            StringBuffer b = new StringBuffer(name);
+            StringBuilder b = new StringBuilder (name);
             b.append('_');
             for (int j = 0; j < name.length(); ++j) {
                 if (!Character.isUpperCase(name.charAt(j)))
@@ -711,7 +711,7 @@ public abstract class ContainerAnalysis  extends ClassAnalysis {
      * Escape non-ISO characters for an IR name.
      */
     protected String escapeIRName(String name) {
-        StringBuffer b = new StringBuffer();
+        StringBuilder b = new StringBuilder ();
 
         for (int i = 0; i < name.length(); ++i) {
             char c = name.charAt(i);
@@ -738,7 +738,7 @@ public abstract class ContainerAnalysis  extends ClassAnalysis {
                 org.omg.CORBA.Object.class.isAssignableFrom(cls) &&
                 org.omg.CORBA.portable.IDLEntity.class.isAssignableFrom(cls)) {
 
-            StringBuffer b = new StringBuffer("IDL:");
+            StringBuilder b = new StringBuilder ("IDL:");
             b.append(cls.getPackage().getName().replace('.', '/'));
             b.append('/');
             String base = cls.getName();
@@ -746,7 +746,7 @@ public abstract class ContainerAnalysis  extends ClassAnalysis {
             b.append(base).append(":1.0");
             repositoryId = b.toString();
         } else {
-            StringBuffer b = new StringBuffer("RMI:");
+            StringBuilder b = new StringBuilder ("RMI:");
             b.append(escapeIRName(cls.getName()));
             memberPrefix = b.toString() + ".";
             String hashStr = toHexString(classHashCode);
